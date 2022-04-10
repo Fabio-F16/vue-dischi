@@ -16,7 +16,7 @@ export default {
 @import "@/style/variables";
 
 header {
-  background-color: $bg-color;
+  background-color: #2e3a46;
   padding: 10px 0px;
   img {
     width: 50px;

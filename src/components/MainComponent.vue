@@ -1,10 +1,8 @@
 <template>
   <main>
     <div class="container">
-      <div class="row">
-        <div v-if="discs.lenght > 0" class="col-12 col-md-6">
-          <CardDisc v-for="item in discs" :key="item" :disc="item" />
-        </div>
+      <div class="cardlist">
+        <CardDisc v-for="item in discs" :key="item.title" :disc="item" />
       </div>
     </div>
   </main>
@@ -36,8 +34,8 @@ export default {
       axios
         .get(this.url)
         .then((response) => {
-          if (response.status == 200) {
-            this.discs = response.data;
+          if (response.status === 200) {
+            this.discs = response.data.response;
             console.log(this.discs);
           }
         })
@@ -50,4 +48,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+main {
+  //   height: calc(100vh - 70px);
+  background-color: #1e2d3b;
+  padding: 25px;
+}
+.cardlist {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 </style>
