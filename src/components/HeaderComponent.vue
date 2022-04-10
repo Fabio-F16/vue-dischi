@@ -1,6 +1,6 @@
 <template>
   <header>
-    <div class="container-fluid">
+    <div class="container-xl">
       <img alt="Vue logo" src="../assets/spotify-logo.png" />
     </div>
   </header>

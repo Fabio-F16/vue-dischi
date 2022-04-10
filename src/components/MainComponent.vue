@@ -36,7 +36,8 @@ export default {
         .then((response) => {
           if (response.status === 200) {
             this.discs = response.data.response;
-            console.log(this.discs);
+            // console.log(response.data);
+            // console.log(this.discs);
           }
         })
         .catch((error) => {
@@ -49,7 +50,8 @@ export default {
 
 <style lang="scss" scoped>
 main {
-  //   height: calc(100vh - 70px);
+  overflow-y: auto;
+  height: calc(100vh - 70px);
   background-color: #1e2d3b;
   padding: 25px;
 }

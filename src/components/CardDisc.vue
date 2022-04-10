@@ -1,5 +1,5 @@
 <template>
-  <div class="ff-card col-12 col-md-2 row">
+  <div class="ff-card row col-12 col-md-4 col-lg-2">
     <img :src="disc.poster" :alt="disc.title" />
     <h5>{{ disc.title }}</h5>
     <p>{{ disc.author }}</p>
@@ -35,6 +35,8 @@ export default {
   }
   p {
     color: #79756f;
+    font-size: 0.8rem;
+    margin-bottom: -5px;
   }
 }
 </style>
