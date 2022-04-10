@@ -1,0 +1,25 @@
+<template>
+  <header>
+    <div class="container-fluid">
+      <img alt="Vue logo" src="../assets/spotify-logo.png" />
+    </div>
+  </header>
+</template>
+
+<script>
+export default {
+  name: "HeaderComponent",
+};
+</script>
+
+<style lang="scss" scoped>
+@import "@/style/variables";
+
+header {
+  background-color: $bg-color;
+  padding: 10px 0px;
+  img {
+    width: 50px;
+  }
+}
+</style>

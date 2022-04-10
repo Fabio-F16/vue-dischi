@@ -1,17 +1,24 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HeaderComponent />
+    <MainComponent :url="urlApi" />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import HeaderComponent from "./components/HeaderComponent.vue";
+import MainComponent from "./components/MainComponent.vue";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    HeaderComponent,
+    MainComponent,
+  },
+  data() {
+    return {
+      urlApi: "https://flynn.boolean.careers/exercises/api/array/music",
+    };
   },
 };
 </script>
