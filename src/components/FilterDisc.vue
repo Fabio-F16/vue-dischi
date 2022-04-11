@@ -1,6 +1,7 @@
 <template>
   <div>
     <select @change="setGenre($event)">
+      <option value="All">All</option>
       <option value="Rock">Rock</option>
       <option value="Jazz">Jazz</option>
       <option value="Pop">Pop</option>

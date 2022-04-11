@@ -52,7 +52,7 @@ export default {
     },
     filterByGenre(genre) {
       this.genre = genre;
-      if (this.genre.length === 0) {
+      if (this.filtered === "All") {
         return this.discs;
       }
       const filtered = this.discs.filter((item) => {
@@ -61,6 +61,7 @@ export default {
       return filtered.filter((item) => {
         item.genre.toLowerCase().includes(this.genre.toLowerCase());
         console.log(this.filtered);
+        this.filtered = filtered;
       });
     },
   },
