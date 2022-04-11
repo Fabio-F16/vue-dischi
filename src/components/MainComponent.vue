@@ -1,9 +1,10 @@
 <template>
   <main>
     <div class="container">
-      <div class="cardlist">
-        <CardDisc v-for="item in discs" :key="item.title" :disc="item" />
+      <div v-if="discs.length > 0" class="cardlist">
+        <CardDisc v-for="(item, index) in discs" :key="index" :disc="item" />
       </div>
+      <div v-else>loading</div>
     </div>
   </main>
 </template>
