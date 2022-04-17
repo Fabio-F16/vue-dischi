@@ -1,9 +1,13 @@
 <template>
   <main>
     <div class="container">
-      <FilterDisc @searchByGenre="filterByGenre" />
+      <FilterDisc @searchEmit="filterByGenre" />
       <div v-if="discs.length > 0" class="cardlist">
-        <CardDisc v-for="(item, index) in discs" :key="index" :disc="item" />
+        <CardDisc
+          v-for="(item, index) in discsFiltered"
+          :key="index"
+          :disc="item"
+        />
       </div>
       <div v-else>loading</div>
     </div>
@@ -21,8 +25,9 @@ export default {
   data() {
     return {
       discs: [],
-      genre: "",
-      filtered: [],
+      //genre: "",
+      //filtered: "",
+      typeSelected: "All",
     };
   },
   props: {
@@ -41,27 +46,32 @@ export default {
         .get(this.url)
         .then((response) => {
           if (response.status === 200) {
+            // console.log(response.data.response);
             this.discs = response.data.response;
-            console.log(response.data.response);
-            // console.log(this.discs);
+            //console.log(this.discs);
+            // author: "Bon Jovi"
+            // genre: "Rock"
+            // poster: "https://www.onstageweb.com/wp-content/uploads/2018/09/bon-jovi-new-jersey.jpg"
+            // title: "New Jersey"
+            // year: "1988"
           }
         })
         .catch((error) => {
           console.log(error);
         });
     },
-    filterByGenre(genre) {
-      this.genre = genre;
-      if (this.filtered === "All") {
+    filterByGenre(genere) {
+      this.typeSelected = genere;
+      console.log(this.typeSelected);
+    },
+  },
+  computed: {
+    discsFiltered: function () {
+      if (this.typeSelected === "All") {
         return this.discs;
       }
-      const filtered = this.discs.filter((item) => {
-        return item.genre.toLowerCase().includes(this.genre.toLowerCase());
-      });
-      return filtered.filter((item) => {
-        item.genre.toLowerCase().includes(this.genre.toLowerCase());
-        console.log(this.filtered);
-        this.filtered = filtered;
+      return this.discs.filter((item) => {
+        return item.genre === this.typeSelected;
       });
     },
   },

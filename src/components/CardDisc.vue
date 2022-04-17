@@ -32,6 +32,7 @@ export default {
     margin-top: 10px;
     font-size: 0.8rem;
     color: white;
+    text-transform: uppercase;
   }
   p {
     color: #79756f;
